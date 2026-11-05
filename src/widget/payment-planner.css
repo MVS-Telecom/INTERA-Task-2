@@ -1,0 +1,24 @@
+.dash-payment-planner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  container-type: inline-size;
+  container-name: payment-planner;
+}
+
+.dash-payment-planner__placeholder {
+  padding: var(--space-4);
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--radius-md);
+  background: var(--bg-muted);
+  color: var(--text-muted);
+  font-size: var(--text-sm);
+  line-height: 1.5;
+}
+
+.dash-payment-planner__placeholder strong {
+  color: var(--text-primary);
+}

@@ -1,0 +1,46 @@
+/* ====================================================================
+ * FreshnessMark — the one freshness indicator of the dashboard widgets.
+ * ==================================================================== */
+
+.dash-freshness {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  cursor: help;
+}
+
+.dash-freshness__dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+}
+
+.dash-freshness--live {
+  color: var(--text-muted);
+}
+
+.dash-freshness--live .dash-freshness__dot {
+  background: var(--metric-severity-ok-fg);
+}
+
+.dash-freshness--ring {
+  width: 18px;
+  height: 18px;
+  border: 1px solid var(--dash-card-border);
+  border-radius: 50%;
+}
+
+.dash-freshness--stale {
+  color: var(--metric-severity-warning-fg);
+}
+
+.dash-freshness--stale .dash-freshness__dot {
+  background: var(--metric-severity-warning-fg);
+}

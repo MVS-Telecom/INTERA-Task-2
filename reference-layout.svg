@@ -1,0 +1,314 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 620" width="1600" height="620" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif">
+  <defs>
+    <filter id="cardShadow2" x="-2%" y="-2%" width="104%" height="106%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#142432" flood-opacity="0.06"/>
+    </filter>
+  </defs>
+
+  <!-- Canvas -->
+  <rect width="1600" height="620" fill="#f4f6f8"/>
+
+  <!-- Top Header -->
+  <text x="32" y="42" font-size="22" font-weight="700" fill="#15202b">Задание №2 — Provider Payment Planner Widget</text>
+  <text x="32" y="66" font-size="14" font-weight="400" fill="#6d7783">Интерактивное планирование платежей поставщикам (DataSource: provider-payment-queue · INTERA Light Theme)</text>
+
+  <!-- =================================================================== -->
+  <!-- CARD 1: XL / full (width 460, height 460) -->
+  <!-- =================================================================== -->
+  <g transform="translate(32, 92)">
+    <rect width="460" height="460" rx="14" fill="#ffffff" stroke="#dfe5eb" stroke-width="1" filter="url(#cardShadow2)"/>
+
+    <!-- Header -->
+    <text x="16" y="30" font-size="14" font-weight="600" fill="#15202b">Provider Payment Planner</text>
+    <text x="16" y="48" font-size="12" fill="#6d7783">Очередь к оплате по payment_rank · 4 валюты</text>
+    <circle cx="408" cy="26" r="4" fill="#2f8a4a"/>
+    <text x="418" y="30" font-size="11" font-weight="600" fill="#6d7783" letter-spacing="0.5">LIVE</text>
+
+    <!-- KPI Row -->
+    <g transform="translate(16, 60)">
+      <rect width="136" height="48" rx="10" fill="#f4f6f8" stroke="#dfe5eb"/>
+      <text x="12" y="22" font-size="17" font-weight="700" fill="#15202b">30</text>
+      <text x="12" y="38" font-size="11" fill="#6d7783">счетов в очереди</text>
+
+      <rect x="146" width="136" height="48" rx="10" fill="#e9f3f6" stroke="#b9d8e2"/>
+      <text x="158" y="22" font-size="17" font-weight="700" fill="#326f82">14</text>
+      <text x="158" y="38" font-size="11" fill="#326f82">выбрано к оплате</text>
+
+      <rect x="292" width="136" height="48" rx="10" fill="#f4f6f8" stroke="#dfe5eb"/>
+      <text x="304" y="22" font-size="17" font-weight="700" fill="#15202b">6</text>
+      <text x="304" y="38" font-size="11" fill="#6d7783">поставщиков</text>
+    </g>
+
+    <!-- Currency Totals + Provider Breakdown (within selected currency) -->
+    <g transform="translate(16, 120)">
+      <!-- Left: Currency Totals -->
+      <rect width="184" height="114" rx="10" fill="#f4f6f8" stroke="#dfe5eb"/>
+      <text x="12" y="20" font-size="11" font-weight="600" fill="#6d7783">СУММА ПО ВАЛЮТАМ</text>
+      <text x="12" y="44" font-size="16" font-weight="700" fill="#15202b">1 248 500,00 ₽</text>
+      <text x="12" y="64" font-size="13" font-weight="600" fill="#15202b">103 500,00 $</text>
+      <text x="12" y="84" font-size="13" font-weight="600" fill="#15202b">12 600,00 €</text>
+      <text x="12" y="102" font-size="12" font-weight="500" fill="#6d7783">11 000,00 £</text>
+
+      <!-- Right: Provider Breakdown per currency -->
+      <g transform="translate(196, 0)">
+        <rect width="232" height="114" rx="10" fill="#f4f6f8" stroke="#dfe5eb"/>
+        <text x="12" y="20" font-size="11" font-weight="600" fill="#6d7783">ПО ПОСТАВЩИКАМ (RUB)</text>
+
+        <!-- Stacked Bar -->
+        <rect x="12" y="28" width="208" height="8" rx="4" fill="#dfe5eb"/>
+        <rect x="12" y="28" width="114" height="8" rx="4" fill="#2a78d6"/>
+        <rect x="126" y="28" width="58" height="8" fill="#1baf7a"/>
+        <rect x="184" y="28" width="36" height="8" rx="4" fill="#6250d6"/>
+
+        <circle cx="16" cy="50" r="4" fill="#2a78d6"/>
+        <text x="26" y="54" font-size="11" fill="#15202b">SatCom Global (3)</text>
+        <text x="220" y="54" font-size="11" font-weight="600" fill="#15202b" text-anchor="end">688 500 ₽ · 55%</text>
+
+        <circle cx="16" cy="72" r="4" fill="#1baf7a"/>
+        <text x="26" y="76" font-size="11" fill="#15202b">TelePort Ltd (2)</text>
+        <text x="220" y="76" font-size="11" font-weight="600" fill="#15202b" text-anchor="end">350 000 ₽ · 28%</text>
+
+        <circle cx="16" cy="94" r="4" fill="#6250d6"/>
+        <text x="26" y="98" font-size="11" fill="#15202b">OceanNet Telecom (2)</text>
+        <text x="220" y="98" font-size="11" font-weight="600" fill="#15202b" text-anchor="end">210 000 ₽ · 17%</text>
+      </g>
+    </g>
+
+    <!-- Slider Control -->
+    <g transform="translate(16, 246)">
+      <text x="0" y="18" font-size="12" font-weight="500" fill="#15202b">Счетов к оплате:</text>
+      <rect x="108" y="2" width="64" height="24" rx="6" fill="#f4f6f8" stroke="#dfe5eb"/>
+      <text x="140" y="18" font-size="12" font-weight="600" fill="#15202b" text-anchor="middle">14 / 30</text>
+      <rect x="184" y="11" width="244" height="6" rx="3" fill="#dfe5eb"/>
+      <rect x="184" y="11" width="114" height="6" rx="3" fill="#3c7f94"/>
+      <circle cx="298" cy="14" r="7" fill="#3c7f94" stroke="#ffffff" stroke-width="2"/>
+    </g>
+
+    <!-- Queue Table Header -->
+    <g transform="translate(16, 282)">
+      <rect width="428" height="24" rx="4" fill="#eef2f6"/>
+      <text x="8" y="16" font-size="10" font-weight="600" fill="#6d7783">RANK</text>
+      <text x="48" y="16" font-size="10" font-weight="600" fill="#6d7783">ПОСТАВЩИК / СЧЁТ</text>
+      <text x="192" y="16" font-size="10" font-weight="600" fill="#6d7783">КЛИЕНТСКИЙ СЧЁТ</text>
+      <text x="310" y="16" font-size="10" font-weight="600" fill="#6d7783">ДАТА</text>
+      <text x="420" y="16" font-size="10" font-weight="600" fill="#6d7783" text-anchor="end">СУММА</text>
+    </g>
+
+    <!-- Selected Row 1 -->
+    <g transform="translate(16, 310)">
+      <rect width="428" height="32" rx="4" fill="#e9f3f6"/>
+      <text x="12" y="20" font-size="11" font-weight="600" fill="#326f82">#1</text>
+      <text x="48" y="14" font-size="11" font-weight="600" fill="#15202b">SatCom Global</text>
+      <text x="48" y="27" font-size="10" fill="#6d7783">INV-77602 (#77602)</text>
+      <text x="192" y="20" font-size="11" fill="#15202b">CB-2026-402 · Арктик Транс</text>
+      <text x="310" y="20" font-size="11" fill="#6d7783">02.10.2026</text>
+      <text x="420" y="20" font-size="11" font-weight="700" fill="#15202b" text-anchor="end">240 000,00 ₽</text>
+    </g>
+
+    <!-- Selected Row 2 -->
+    <g transform="translate(16, 346)">
+      <rect width="428" height="32" rx="4" fill="#e9f3f6"/>
+      <text x="12" y="20" font-size="11" font-weight="600" fill="#326f82">#1</text>
+      <text x="48" y="14" font-size="11" font-weight="600" fill="#15202b">TelePort Ltd</text>
+      <text x="48" y="27" font-size="10" fill="#6d7783">INV-77604 (#77604)</text>
+      <text x="192" y="20" font-size="11" fill="#15202b">CB-2026-404 · СевМорПуть</text>
+      <text x="310" y="20" font-size="11" fill="#6d7783">03.10.2026</text>
+      <text x="420" y="20" font-size="11" font-weight="700" fill="#15202b" text-anchor="end">180 000,00 ₽</text>
+    </g>
+
+    <!-- Selected Row 3 -->
+    <g transform="translate(16, 382)">
+      <rect width="428" height="32" rx="4" fill="#e9f3f6"/>
+      <text x="12" y="20" font-size="11" font-weight="600" fill="#326f82">#1</text>
+      <text x="48" y="14" font-size="11" font-weight="600" fill="#15202b">Iridium Satellite LLC</text>
+      <text x="48" y="27" font-size="10" fill="#6d7783">IR-2026-8801 (#77606)</text>
+      <text x="192" y="20" font-size="11" fill="#15202b">CB-2026-406 · Океан Сервис</text>
+      <text x="310" y="20" font-size="11" fill="#6d7783">03.10.2026</text>
+      <text x="420" y="20" font-size="11" font-weight="700" fill="#15202b" text-anchor="end">34 000,00 $</text>
+    </g>
+
+    <!-- Invalid Row Example -->
+    <g transform="translate(16, 418)">
+      <rect width="428" height="28" rx="4" fill="#fff7e5"/>
+      <text x="12" y="18" font-size="11" font-weight="600" fill="#7a4f01">#4</text>
+      <text x="48" y="18" font-size="11" font-weight="600" fill="#15202b">TelePort Ltd · INV-77630-ERR</text>
+      <text x="420" y="18" font-size="11" font-weight="600" fill="#dd6b20" text-anchor="end">⚠ Некорректная сумма (исключена)</text>
+    </g>
+
+    <text x="230" y="484" font-size="14" font-weight="600" fill="#15202b" text-anchor="middle">XL — size: full (4/4)</text>
+    <text x="230" y="502" font-size="12" fill="#6d7783" text-anchor="middle">Полный планировщик: валюты, доли поставщиков, слайдер и таблица очереди</text>
+  </g>
+
+  <!-- =================================================================== -->
+  <!-- CARD 2: L / half (width 310, height 460) -->
+  <!-- =================================================================== -->
+  <g transform="translate(512, 92)">
+    <rect width="310" height="460" rx="14" fill="#ffffff" stroke="#dfe5eb" stroke-width="1" filter="url(#cardShadow2)"/>
+
+    <text x="16" y="30" font-size="14" font-weight="600" fill="#15202b">План платежей</text>
+    <circle cx="262" cy="26" r="4" fill="#2f8a4a"/>
+    <text x="272" y="30" font-size="11" font-weight="600" fill="#6d7783">LIVE</text>
+
+    <!-- Selected Count + Slider -->
+    <g transform="translate(16, 48)">
+      <rect width="278" height="64" rx="10" fill="#f4f6f8" stroke="#dfe5eb"/>
+      <text x="12" y="24" font-size="16" font-weight="700" fill="#15202b">14 из 30 счетов</text>
+      <text x="266" y="24" font-size="12" font-weight="600" fill="#3c7f94" text-anchor="end">47%</text>
+      <rect x="12" y="38" width="254" height="8" rx="4" fill="#dfe5eb"/>
+      <rect x="12" y="38" width="118" height="8" rx="4" fill="#3c7f94"/>
+      <circle cx="130" cy="42" r="7" fill="#3c7f94" stroke="#ffffff" stroke-width="2"/>
+    </g>
+
+    <!-- All Currencies Summary -->
+    <g transform="translate(16, 126)">
+      <rect width="278" height="148" rx="10" fill="#f4f6f8" stroke="#dfe5eb"/>
+      <text x="12" y="22" font-size="11" font-weight="600" fill="#6d7783">СУММА К ОПЛАТЕ ПО ВАЛЮТАМ</text>
+
+      <text x="12" y="50" font-size="18" font-weight="700" fill="#15202b">1 248 500,00 ₽</text>
+      <text x="266" y="50" font-size="11" fill="#6d7783" text-anchor="end">7 счетов</text>
+
+      <text x="12" y="80" font-size="14" font-weight="600" fill="#15202b">103 500,00 $</text>
+      <text x="266" y="80" font-size="11" fill="#6d7783" text-anchor="end">3 счёта</text>
+
+      <text x="12" y="108" font-size="14" font-weight="600" fill="#15202b">12 600,00 €</text>
+      <text x="266" y="108" font-size="11" fill="#6d7783" text-anchor="end">2 счёта</text>
+
+      <text x="12" y="134" font-size="14" font-weight="600" fill="#15202b">11 000,00 £</text>
+      <text x="266" y="134" font-size="11" fill="#6d7783" text-anchor="end">2 счёта</text>
+    </g>
+
+    <!-- Meta Info -->
+    <g transform="translate(16, 290)">
+      <text x="0" y="18" font-size="12" fill="#15202b">Поставщиков в плане: <tspan font-weight="700">6</tspan></text>
+      <text x="0" y="42" font-size="12" fill="#15202b">Старейший счёт: <tspan font-weight="600">02.10.2026</tspan></text>
+      <text x="0" y="66" font-size="12" fill="#dd6b20">Исключено некорректных: <tspan font-weight="700">1 счёт</tspan></text>
+    </g>
+
+    <!-- Action Button -->
+    <g transform="translate(16, 408)">
+      <rect width="278" height="34" rx="8" fill="#e9f3f6" stroke="#3c7f94" stroke-opacity="0.3"/>
+      <text x="139" y="22" font-size="12" font-weight="600" fill="#3c7f94" text-anchor="middle">Открыть очередь платежей →</text>
+    </g>
+
+    <text x="155" y="484" font-size="14" font-weight="600" fill="#15202b" text-anchor="middle">L — size: half (1/2)</text>
+    <text x="155" y="502" font-size="12" fill="#6d7783" text-anchor="middle">Компактный выбор N и полная валютная сводка</text>
+  </g>
+
+  <!-- =================================================================== -->
+  <!-- CARD 3: M / third (width 220, height 360) -->
+  <!-- =================================================================== -->
+  <g transform="translate(842, 92)">
+    <rect width="220" height="360" rx="14" fill="#ffffff" stroke="#dfe5eb" stroke-width="1" filter="url(#cardShadow2)"/>
+
+    <text x="16" y="30" font-size="14" font-weight="600" fill="#15202b">К оплате</text>
+    <circle cx="196" cy="26" r="4" fill="#2f8a4a"/>
+
+    <text x="16" y="68" font-size="26" font-weight="700" fill="#3c7f94">14 <tspan font-size="16" fill="#6d7783">/ 30</tspan></text>
+    <text x="16" y="86" font-size="11" fill="#6d7783">счетов в плане · 6 поставщиков</text>
+
+    <!-- Currencies -->
+    <g transform="translate(16, 106)">
+      <text x="0" y="20" font-size="16" font-weight="700" fill="#15202b">1 248 500,00 ₽</text>
+      <text x="0" y="46" font-size="13" font-weight="600" fill="#15202b">103 500,00 $</text>
+      <text x="0" y="70" font-size="13" font-weight="600" fill="#15202b">12 600,00 €</text>
+      <text x="0" y="94" font-size="13" font-weight="600" fill="#15202b">11 000,00 £</text>
+    </g>
+
+    <!-- Provider Proportion Bar -->
+    <g transform="translate(16, 224)">
+      <text x="0" y="12" font-size="10" font-weight="600" fill="#6d7783">ДОЛИ ПОСТАВЩИКОВ (RUB)</text>
+      <rect y="20" width="188" height="10" rx="5" fill="#dfe5eb"/>
+      <rect y="20" width="103" height="10" rx="5" fill="#2a78d6"/>
+      <rect x="103" y="20" width="53" height="10" fill="#1baf7a"/>
+      <rect x="156" y="20" width="32" height="10" rx="5" fill="#6250d6"/>
+    </g>
+
+    <g transform="translate(16, 308)">
+      <rect width="188" height="34" rx="8" fill="#e9f3f6"/>
+      <text x="94" y="22" font-size="12" font-weight="600" fill="#3c7f94" text-anchor="middle">Открыть детали →</text>
+    </g>
+
+    <text x="110" y="386" font-size="14" font-weight="600" fill="#15202b" text-anchor="middle">M — size: third (1/3)</text>
+  </g>
+
+  <!-- =================================================================== -->
+  <!-- CARD 4: S / quarter (width 156, height 360) -->
+  <!-- =================================================================== -->
+  <g transform="translate(1082, 92)">
+    <rect width="156" height="360" rx="14" fill="#ffffff" stroke="#dfe5eb" stroke-width="1" filter="url(#cardShadow2)"/>
+
+    <text x="16" y="30" font-size="14" font-weight="600" fill="#15202b">Платежи</text>
+    <circle cx="134" cy="26" r="4" fill="#2f8a4a"/>
+
+    <rect x="16" y="48" width="124" height="64" rx="10" fill="#e9f3f6"/>
+    <text x="28" y="84" font-size="26" font-weight="700" fill="#326f82">14</text>
+    <text x="28" y="102" font-size="11" fill="#326f82">из 30 к оплате</text>
+
+    <!-- Primary currency + explicit overflow count (never hidden silently!) -->
+    <g transform="translate(16, 128)">
+      <text x="0" y="14" font-size="10" font-weight="600" fill="#6d7783">ВАЛЮТ В ПЛАНЕ: 4</text>
+      <text x="0" y="38" font-size="14" font-weight="700" fill="#15202b">1 248 500 ₽</text>
+      <text x="0" y="60" font-size="13" font-weight="600" fill="#15202b">103 500 $</text>
+      <rect y="74" width="124" height="26" rx="6" fill="#f4f6f8" stroke="#dfe5eb"/>
+      <text x="62" y="91" font-size="11" font-weight="600" fill="#3c7f94" text-anchor="middle">+ ещё 2 валюты (EUR, GBP)</text>
+    </g>
+
+    <g transform="translate(16, 308)">
+      <rect width="124" height="34" rx="8" fill="#e9f3f6"/>
+      <text x="62" y="22" font-size="12" font-weight="600" fill="#3c7f94" text-anchor="middle">Все валюты →</text>
+    </g>
+
+    <text x="78" y="386" font-size="14" font-weight="600" fill="#15202b" text-anchor="middle">S — size: quarter (1/4)</text>
+  </g>
+
+  <!-- =================================================================== -->
+  <!-- PARAMETER SPECIFICATION TABLE (width 310, height 460) -->
+  <!-- =================================================================== -->
+  <g transform="translate(1258, 92)">
+    <rect width="310" height="460" rx="14" fill="#ffffff" stroke="#dfe5eb" stroke-width="1" filter="url(#cardShadow2)"/>
+    <rect width="310" height="52" rx="14" fill="#e9f3f6"/>
+    <text x="16" y="26" font-size="14" font-weight="700" fill="#15202b">Параметры виджета (params)</text>
+    <text x="16" y="42" font-size="11" fill="#326f82">Контракт parsePaymentPlannerParams</text>
+
+    <g transform="translate(16, 70)" font-size="11">
+      <text x="0" y="0" font-weight="700" fill="#15202b">selectedCount</text>
+      <text x="135" y="0" fill="#6d7783">number ≥ 0 (def: 10)</text>
+      <line x1="0" y1="10" x2="278" y2="10" stroke="#e8edf1"/>
+
+      <text x="0" y="34" font-weight="700" fill="#15202b">currencyIds</text>
+      <text x="135" y="34" fill="#6d7783">number[] (def: [] — все)</text>
+      <line x1="0" y1="44" x2="278" y2="44" stroke="#e8edf1"/>
+
+      <text x="0" y="68" font-weight="700" fill="#15202b">providerId</text>
+      <text x="135" y="68" fill="#6d7783">number | 'all' (def: 'all')</text>
+      <line x1="0" y1="78" x2="278" y2="78" stroke="#e8edf1"/>
+
+      <text x="0" y="102" font-weight="700" fill="#15202b">billingCycleId</text>
+      <text x="135" y="102" fill="#6d7783">number | 'all' (def: 'all')</text>
+      <line x1="0" y1="112" x2="278" y2="112" stroke="#e8edf1"/>
+
+      <text x="0" y="136" font-weight="700" fill="#15202b">amountFormat</text>
+      <text x="135" y="136" fill="#6d7783">'grouped' | 'plain'</text>
+      <line x1="0" y1="146" x2="278" y2="146" stroke="#e8edf1"/>
+
+      <text x="0" y="170" font-weight="700" fill="#15202b">rowLimit</text>
+      <text x="135" y="170" fill="#6d7783">10 | 25 | 50 | 100 (def: 10)</text>
+      <line x1="0" y1="180" x2="278" y2="180" stroke="#e8edf1"/>
+
+      <text x="0" y="204" font-weight="700" fill="#15202b">showCustomerBills</text>
+      <text x="135" y="204" fill="#6d7783">boolean (def: true)</text>
+      <line x1="0" y1="214" x2="278" y2="214" stroke="#e8edf1"/>
+
+      <text x="0" y="238" font-weight="700" fill="#15202b">showProviderBreakdown</text>
+      <text x="135" y="238" fill="#6d7783">boolean (def: true)</text>
+      <line x1="0" y1="248" x2="278" y2="248" stroke="#e8edf1"/>
+
+      <text x="0" y="272" font-weight="700" fill="#15202b">showSummary</text>
+      <text x="135" y="272" fill="#6d7783">boolean (def: true)</text>
+      <line x1="0" y1="282" x2="278" y2="282" stroke="#e8edf1"/>
+
+      <text x="0" y="306" font-weight="700" fill="#15202b">size</text>
+      <text x="135" y="306" fill="#6d7783">'full'|'half'|'third'|'quarter'</text>
+    </g>
+  </g>
+</svg>
