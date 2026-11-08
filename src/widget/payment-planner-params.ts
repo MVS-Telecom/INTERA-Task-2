@@ -1,3 +1,9 @@
+import { toFiniteNumber } from '../platform/to-finite-number';
+import {
+  readBoolean,
+  readEnum,
+  readString,
+} from '../platform/widget-param-readers';
 import {
   WIDGET_ROW_LIMITS,
   WIDGET_SIZES,
@@ -38,6 +44,49 @@ export interface IPaymentPlannerConfig {
   showSummary: boolean;
 }
 
+function readNonNegativeInt(value: unknown, fallback: number): number {
+  const n = toFiniteNumber(value);
+  if (n === null) {
+    return fallback;
+  }
+  return Math.max(0, Math.round(n));
+}
+
+function readIdOrAll(value: unknown): number | 'all' {
+  if (value === 'all' || value === undefined || value === null) {
+    return 'all';
+  }
+  const n = toFiniteNumber(value);
+  return n === null ? 'all' : n;
+}
+
+function readCurrencyIds(value: unknown): number[] {
+  if (!Array.isArray(value)) {
+    return [];
+  }
+  const seen = new Set<number>();
+  const result: number[] = [];
+  for (const item of value) {
+    const n = toFiniteNumber(item);
+    if (n === null || seen.has(n)) {
+      continue;
+    }
+    seen.add(n);
+    result.push(n);
+  }
+  return result;
+}
+
+function readRowLimit(params: Record<string, unknown>): TWidgetRowLimit {
+  const raw = params.rowLimit ?? params.maxRows;
+  const n = toFiniteNumber(raw);
+  if (n === null) {
+    return DEFAULT_ROW_LIMIT;
+  }
+  const rounded = Math.round(n) as TWidgetRowLimit;
+  return WIDGET_ROW_LIMITS.includes(rounded) ? rounded : DEFAULT_ROW_LIMIT;
+}
+
 /**
  * Parses untyped widget `params` into a validated `IPaymentPlannerConfig` with all defaults applied.
  *
@@ -53,47 +102,20 @@ export function parsePaymentPlannerParams(
 ): IPaymentPlannerConfig {
   const p = params ?? {};
 
-  // TODO: Implement full defensive parsing according to the specification.
+  const descriptionRaw = readString(p.description).trim() || readString(p.title).trim();
+
   return {
-    description:
-      typeof p.description === 'string' && p.description.trim()
-        ? p.description.trim()
-        : typeof p.title === 'string' && p.title.trim()
-          ? p.title.trim()
-          : 'Provider Payment Planner',
-    subtitle: typeof p.subtitle === 'string' ? p.subtitle.trim() : '',
-    size: WIDGET_SIZES.includes(p.size as TWidgetSize)
-      ? (p.size as TWidgetSize)
-      : 'full',
-    selectedCount:
-      typeof p.selectedCount === 'number' && Number.isFinite(p.selectedCount)
-        ? Math.max(0, Math.round(p.selectedCount))
-        : DEFAULT_SELECTED_COUNT,
-    currencyIds: Array.isArray(p.currencyIds)
-      ? p.currencyIds.filter(
-          (id): id is number => typeof id === 'number' && Number.isFinite(id),
-        )
-      : [],
-    providerId:
-      typeof p.providerId === 'number' && Number.isFinite(p.providerId)
-        ? p.providerId
-        : 'all',
-    billingCycleId:
-      typeof p.billingCycleId === 'number' && Number.isFinite(p.billingCycleId)
-        ? p.billingCycleId
-        : 'all',
-    amountFormat: AMOUNT_FORMATS.includes(p.amountFormat as TAmountFormat)
-      ? (p.amountFormat as TAmountFormat)
-      : 'grouped',
-    rowLimit: WIDGET_ROW_LIMITS.includes(p.rowLimit as TWidgetRowLimit)
-      ? (p.rowLimit as TWidgetRowLimit)
-      : DEFAULT_ROW_LIMIT,
-    showCustomerBills:
-      typeof p.showCustomerBills === 'boolean' ? p.showCustomerBills : true,
-    showProviderBreakdown:
-      typeof p.showProviderBreakdown === 'boolean'
-        ? p.showProviderBreakdown
-        : true,
-    showSummary: typeof p.showSummary === 'boolean' ? p.showSummary : true,
+    description: descriptionRaw || 'Provider Payment Planner',
+    subtitle: readString(p.subtitle).trim(),
+    size: readEnum(p.size, WIDGET_SIZES, 'full'),
+    selectedCount: readNonNegativeInt(p.selectedCount, DEFAULT_SELECTED_COUNT),
+    currencyIds: readCurrencyIds(p.currencyIds),
+    providerId: readIdOrAll(p.providerId),
+    billingCycleId: readIdOrAll(p.billingCycleId),
+    amountFormat: readEnum(p.amountFormat, AMOUNT_FORMATS, 'grouped'),
+    rowLimit: readRowLimit(p),
+    showCustomerBills: readBoolean(p.showCustomerBills, true),
+    showProviderBreakdown: readBoolean(p.showProviderBreakdown, true),
+    showSummary: readBoolean(p.showSummary, true),
   };
 }
