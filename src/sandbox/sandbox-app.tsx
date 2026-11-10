@@ -38,7 +38,9 @@ export function SandboxApp(): ReactElement {
   const [dataMode, setDataMode] = useState<TDataStateMode>('ready');
 
   const [description, setDescription] = useState('Provider Payment Planner');
-  const [subtitle, setSubtitle] = useState('Enigma · provider-payment-queue');
+  const [subtitle, setSubtitle] = useState(
+    'Очередь к оплате по payment_rank · 4 валюты',
+  );
   const [selectedCount, setSelectedCount] = useState(14);
   const [currencyIds, setCurrencyIds] = useState<number[]>([]);
   const [providerId, setProviderId] = useState<number | 'all'>('all');
@@ -178,7 +180,7 @@ export function SandboxApp(): ReactElement {
 
   const resetParams = () => {
     setDescription('Provider Payment Planner');
-    setSubtitle('Enigma · provider-payment-queue');
+    setSubtitle('Очередь к оплате по payment_rank · 4 валюты');
     setSelectedCount(14);
     setCurrencyIds([]);
     setProviderId('all');
