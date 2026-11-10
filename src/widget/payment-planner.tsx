@@ -203,7 +203,9 @@ function toggleCurrencyFilter(
   const next = active.includes(currencyId)
     ? active.filter((id) => id !== currencyId)
     : [...active, currencyId];
-  if (next.length === 0 || next.length === allIds.length) {
+  const allCurrenciesSelected =
+    next.length === allIds.length && allIds.every((id) => next.includes(id));
+  if (next.length === 0 || allCurrenciesSelected) {
     return [];
   }
   return next;
